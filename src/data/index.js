@@ -1,6 +1,14 @@
 const crm_data = {
   data: [
     {
+      first_name: "Javier",
+      last_name: "Hernández",
+      national_identification_number: "1234668282",
+      birthdate: "4/10/1980",
+      email: "jaher0@testio.com",
+      judicial_records: "FALSE",
+    },
+    {
       first_name: "Myrlene",
       last_name: "Furzer",
       national_identification_number: "4002668282",
