@@ -1,33 +1,12 @@
 import React from "react";
 import crm_data from "../data";
+import Lead from "./Lead";
+import Button from "./Button";
 
-// console.log(crm_data);
-
-// const Leads = () => (
-class Leads extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // data: crm_data.data,
-      data: [],
-    };
-    this.getExternalLeads = this.getExternalLeads.bind(this);
-    this.firstValidation = this.firstValidation.bind(this);
-    this.secondValidation = this.secondValidation.bind(this);
-  }
-  // consulto datos externos
-  async getExternalLeads() {
-    // console.log("entro!");
-    const res = await fetch(
-      // "https://swapi.dev/api/planets/"
-      "http://68.183.97.181/checkproyects/items/crm_test"
-    );
-    const data = await res.json();
-    return data.data;
-  }
-
-  async firstValidation() {
-    const externalData = await this.getExternalLeads();
+const Leads = () => {
+  const firstValidationFunction = async (text) => {
+    console.log(text);
+    const externalData = await getExternalLeads();
     const internalData = crm_data.data;
     const finalResult = [];
     internalData.forEach((lead) => {
@@ -46,55 +25,48 @@ class Leads extends React.Component {
       }
     });
     console.log(finalResult);
-  }
-
-  async secondValidation() {
-    const externalData = await this.getExternalLeads();
+  };
+  const secondValidationFunction = async (text) => {
+    console.log(text);
+    const externalData = await getExternalLeads();
     const resultado = externalData.filter((leadExt) => {
       return leadExt.judicial_records === false;
     });
     console.log(resultado);
-  }
+  };
 
-  async componentDidMount() {
-    const data = await this.getExternalLeads();
-    this.setState({ data });
-    this.firstValidation();
-    this.secondValidation();
-  }
-
-  render() {
-    return (
-      <section>
-        <h2>Leads</h2>
-        <div className="row">
-          <div className="row__header">
-            <div>First Name</div>
-            <div>Last Name</div>
-            <div>National Identification Number</div>
-            <div>Birth Date</div>
-            <div>Email</div>
-          </div>
-          {this.state.data.map((lead, index) => (
-            <div className="row__item" key={index}>
-              <div>{`${lead.first_name}`}</div>
-              <div>{`${lead.last_name}`}</div>
-              <div>{`${lead.national_identification_number}`}</div>
-              <div>{`${lead.birthdate}`}</div>
-              <div>{`${lead.email}`}</div>
-            </div>
-            // <Lead
-            //   name={`${user.name.first} ${user.name.last}`}
-            //   avatar={user.picture.thumbnail}
-            //   email={user.email}
-            //   key={user.id.value}
-            // />
-          ))}
-        </div>
-        <button>Check</button>
-      </section>
+  // consulto datos externos
+  const getExternalLeads = async () => {
+    const res = await fetch(
+      "http://68.183.97.181/checkproyects/items/crm_test"
     );
-  }
-}
+    const data = await res.json();
+    return data.data;
+  };
+  return (
+    <section>
+      <h2>Leads</h2>
+      <div className="row">
+        <div className="row__header">
+          <div>First Name</div>
+          <div>Last Name</div>
+          <div>National Identification Number</div>
+          <div>Birth Date</div>
+          <div>Email</div>
+        </div>
+        {crm_data.data.map((lead, index) => (
+          <div className="row__item" key={index}>
+            <Lead key={index} {...lead} />
+          </div>
+        ))}
+      </div>
+      <Button
+        text="Check"
+        firstValidation={firstValidationFunction}
+        secondValidation={secondValidationFunction}
+      />
+    </section>
+  );
+};
 
 export default Leads;
