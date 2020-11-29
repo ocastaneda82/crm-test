@@ -59,6 +59,7 @@ const Leads = () => {
     console.log(resultSecond);
     const finalResult = RandomScore(partialResult);
     console.log(finalResult);
+    return finalResult;
   };
 
   const RandomScore = (partialResult) => {
@@ -76,7 +77,6 @@ const Leads = () => {
     const res = await fetch(
       "http://68.183.97.181/checkproyects/items/crm_test"
     );
-    // const data = await res.json();
     const data = await res.json();
     return data.data;
   };
@@ -97,12 +97,7 @@ const Leads = () => {
           </div>
         ))}
       </div>
-      <Button
-        text="Check"
-        firstValidation={firstValidationFunction}
-        secondValidation={secondValidationFunction}
-        thirdValidation={thirdValidationFunction}
-      />
+      <Button text="Check" thirdValidation={thirdValidationFunction} />
     </section>
   );
 };
