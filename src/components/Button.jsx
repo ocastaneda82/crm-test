@@ -17,7 +17,6 @@ const Button = ({ text, thirdValidation, data, get_prospects }) => {
         thirdValidation("Third one done!")
           .then((result) => {
             console.log(result);
-            // prospectsClick("Ya casi");
             prospectsClick(result);
           })
           .catch((err) => console.log(err));
