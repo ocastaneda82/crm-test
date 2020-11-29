@@ -1,24 +1,29 @@
 import React from "react";
 import Lead from "./Lead";
+import Headers from "./Headers";
 import prospectState from "../redux/reducers/prospectsReducer";
 import { connect } from "react-redux";
 
 const Prospects = ({ data }) => (
-  <section>
-    <h2>Prospects</h2>
-    <div className="row">
-      <div className="row__header">
-        <div>First Name</div>
-        <div>Last Name</div>
-        <div>National Identification Number</div>
-        <div>Birth Date</div>
-        <div>Email</div>
-      </div>
-      {data.map((lead, index) => (
-        <div className="row__item" key={index}>
-          <Lead key={index} {...lead} />
-        </div>
-      ))}
+  <section className="prospects">
+    <header className="header">
+      <h2 className="header__title">Prospects</h2>
+    </header>
+    <div className="main">
+      <table>
+        <thead>
+          <tr>
+            <Headers />
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((lead, index) => (
+            <tr key={index}>
+              <Lead key={index} {...lead} />
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   </section>
 );

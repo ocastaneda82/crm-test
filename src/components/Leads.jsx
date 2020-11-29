@@ -2,6 +2,7 @@ import React from "react";
 import crm_data from "../data";
 import Lead from "./Lead";
 import Button from "./Button";
+import Headers from "./Headers";
 
 const Leads = () => {
   const firstValidationFunction = async (text) => {
@@ -81,21 +82,25 @@ const Leads = () => {
     return data.data;
   };
   return (
-    <section>
-      <h2>Leads</h2>
-      <div className="row">
-        <div className="row__header">
-          <div>First Name</div>
-          <div>Last Name</div>
-          <div>National Identification Number</div>
-          <div>Birth Date</div>
-          <div>Email</div>
-        </div>
-        {crm_data.data.map((lead, index) => (
-          <div className="row__item" key={index}>
-            <Lead key={index} {...lead} />
-          </div>
-        ))}
+    <section className="leads">
+      <header className="header">
+        <h2 className="header__title">Leads</h2>
+      </header>
+      <div className="main">
+        <table>
+          <thead>
+            <tr>
+              <Headers />
+            </tr>
+          </thead>
+          <tbody>
+            {crm_data.data.map((lead, index) => (
+              <tr key={index}>
+                <Lead key={index} {...lead} />
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
       <Button text="Check" thirdValidation={thirdValidationFunction} />
     </section>

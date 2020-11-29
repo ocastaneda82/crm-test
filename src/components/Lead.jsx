@@ -6,14 +6,15 @@ const Lead = ({
   national_identification_number,
   birthdate,
   email,
+  score,
 }) => {
   return (
     <Fragment>
-      <div>{`${first_name}`}</div>
-      <div>{`${last_name}`}</div>
-      <div>{`${national_identification_number}`}</div>
-      <div>{`${birthdate}`}</div>
-      <div>{`${email}`}</div>
+      <td data-title="Names">{`${first_name} ${last_name}`}</td>
+      <td data-title="ID Number">{`${national_identification_number}`}</td>
+      <td data-title="Birth date">{`${birthdate}`}</td>
+      <td data-title="Email">{`${email}`}</td>
+      <td data-title="Score">{`${score}`}</td>
     </Fragment>
   );
 };

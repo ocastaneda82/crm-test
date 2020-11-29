@@ -6,9 +6,13 @@ import "./styles.css";
 export default function App() {
   return (
     <div className="App">
-      <h1>CRM</h1>
-      <Leads />
-      <Prospects />
+      <header className="header">
+        <h1 className="header__title">CRM</h1>
+      </header>
+      <main className="main">
+        <Leads />
+        <Prospects />
+      </main>
     </div>
   );
 }

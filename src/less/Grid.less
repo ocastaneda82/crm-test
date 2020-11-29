@@ -1,0 +1,73 @@
+// main: ./App.less
+
+.App {
+  padding: 1em;
+  margin: 1em;
+  background-color: #fff;
+  .border-radius(0.5em);
+}
+.main {
+  margin: 2em 0;
+}
+@media only screen and (max-width: 800px) {
+  /* Force table to not be like tables anymore */
+  .main table,
+  .main thead,
+  .main tbody,
+  .main th,
+  .main td,
+  .main tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .main thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  //   .main table {
+  //     border-top: 1px solid #eee;
+  //   }
+  .main tr {
+    margin-bottom: 2em;
+  }
+
+  .main td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding: 0.5em;
+    padding-left: 25%;
+    white-space: normal;
+    text-align: left;
+    &:first-child {
+      border-top: 1px solid #eee;
+    }
+  }
+
+  .main td:before {
+    /* Now like a table header */
+
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 0.8em;
+    left: 0;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: @font_text;
+    font-size: 12px;
+    color: @color_labels;
+  }
+
+  /*
+	Label the data
+	*/
+  .main td:before {
+    content: attr(data-title);
+  }
+}
