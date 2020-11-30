@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/crm-test/static/css/main.003ab658.chunk.css",
+    "main.js": "/crm-test/static/js/main.08fa6361.chunk.js",
+    "main.js.map": "/crm-test/static/js/main.08fa6361.chunk.js.map",
+    "runtime-main.js": "/crm-test/static/js/runtime-main.394f4472.js",
+    "runtime-main.js.map": "/crm-test/static/js/runtime-main.394f4472.js.map",
+    "static/js/2.0e784da5.chunk.js": "/crm-test/static/js/2.0e784da5.chunk.js",
+    "static/js/2.0e784da5.chunk.js.map": "/crm-test/static/js/2.0e784da5.chunk.js.map",
+    "index.html": "/crm-test/index.html",
+    "precache-manifest.7f1ac21b74931ce37d30db9936fdb8cc.js": "/crm-test/precache-manifest.7f1ac21b74931ce37d30db9936fdb8cc.js",
+    "service-worker.js": "/crm-test/service-worker.js",
+    "static/css/main.003ab658.chunk.css.map": "/crm-test/static/css/main.003ab658.chunk.css.map",
+    "static/js/2.0e784da5.chunk.js.LICENSE.txt": "/crm-test/static/js/2.0e784da5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.394f4472.js",
+    "static/js/2.0e784da5.chunk.js",
+    "static/css/main.003ab658.chunk.css",
+    "static/js/main.08fa6361.chunk.js"
+  ]
+}
