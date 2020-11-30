@@ -11,12 +11,11 @@ const Button = ({ text, thirdValidation, data, get_prospects }) => {
     });
   };
 
-  const goToElement = () =>{
+  const goToElement = () => {
     const elem = document.getElementById("prospects");
-    console.log(elem);
     const found = window.scrollY + elem.getBoundingClientRect().top;
     window.scrollTo(0, found);
-  }
+  };
   return (
     <button
       className="boton boton--check"
@@ -28,7 +27,6 @@ const Button = ({ text, thirdValidation, data, get_prospects }) => {
           })
           .catch((err) => console.log(err))
           .then(() => goToElement());
-        ;
       }}
     >
       <span>{text}</span>
@@ -37,11 +35,9 @@ const Button = ({ text, thirdValidation, data, get_prospects }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log("Estado recibido ", state);
   return {
     data: state.prospectState.data,
   };
 };
 
 export default connect(mapStateToProps, { get_prospects })(Button);
-// export default Button;

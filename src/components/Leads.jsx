@@ -24,7 +24,6 @@ const Leads = () => {
         partialResult.push(result);
       }
     });
-    console.log(text);
     return partialResult;
   };
   const secondValidationFunction = async (text) => {
@@ -32,7 +31,6 @@ const Leads = () => {
     const resultado = externalData.filter((leadExt) => {
       return leadExt.judicial_records === false;
     });
-    console.log(text);
     return resultado;
   };
 
@@ -55,11 +53,7 @@ const Leads = () => {
         partialResult.push(result);
       }
     });
-    console.log(text);
-    console.log(resultFirst);
-    console.log(resultSecond);
     const finalResult = RandomScore(partialResult);
-    console.log(finalResult);
     return finalResult;
   };
 

@@ -31,11 +31,9 @@ const Prospects = ({ data }) => (
 );
 
 const mapStateToProps = (state) => {
-  // console.log("Estado recibido ", state);
   return {
     data: state.prospectState.data,
   };
 };
 
 export default connect(mapStateToProps)(Prospects);
-// export default Prospects;
