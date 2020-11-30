@@ -7,11 +7,11 @@ import { connect } from "react-redux";
 const Prospects = ({ data }) => (
   <section className="prospects">
     <header className="header header__subtitle">
-      <h2 id="prospects" className="header__title">
+      <h2 id="prospects" className="header__title header__title--section">
         Prospects
       </h2>
     </header>
-    <div className="main">
+    <div className="container container--leads">
       <table>
         <thead>
           <tr>

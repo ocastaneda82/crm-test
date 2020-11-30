@@ -1,6 +1,12 @@
 // main: ./App.less
 
 .leads {
+  .border-radius(0.5em);
+  padding: 1em 1em 2em 1em;
+  background-color: lighten(@color_labels, 35%);
+  @media (min-width: 992px) {
+    .border-radiuses( 0, 0, 0.5em, 0.5em);
+  }
   [data-title="Score"] {
     display: none;
   }
@@ -8,4 +14,3 @@
     display: none;
   }
 }
-

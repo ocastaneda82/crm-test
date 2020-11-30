@@ -84,10 +84,10 @@ const Leads = () => {
   return (
     <section className="leads">
       <header className="header header__subtitle">
-        <h2 className="header__title">Leads</h2>
+        <h2 className="header__title header__title--section">Leads</h2>
         <Button text="Check" thirdValidation={thirdValidationFunction} />
       </header>
-      <div className="main">
+      <div className="container container--leads">
         <table>
           <thead>
             <tr>

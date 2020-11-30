@@ -6,21 +6,19 @@
   padding: 1em;
   line-height: 1;
   &--check {
-    background-color: @color_azul--claro;
+    background-color: green;
     color: #fff;
     @media (min-width: 992px) {
       cursor: pointer;
-      background-color: fade(gray, 20%) ;
       padding: 0.5em;
-      color: @color_azul--oscuro;
-      margin-right: 2em;
       &:hover {
-          background-color: @color_azul--claro;
-          color: #fff;
-          outline: none;
+        background-color: darkgreen;
+        color: #fff;
+        outline: none;
       }
-      &:active, &:focus {
-          outline: none;
+      &:active,
+      &:focus {
+        outline: none;
       }
     }
   }
