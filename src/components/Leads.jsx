@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import crm_data from "../data";
 import Lead from "./Lead";
 import Button from "./Button";
 import Headers from "./Headers";
 
-const Leads = () => {
+import axios from "axios";
+
+import { connect } from "react-redux";
+
+import { get_extdata } from "../redux/actions/extDataAction.js";
+import extdataState from "../redux/reducers/extDataReducer";
+
+const Leads = ({ extdata, get_extdata }) => {
   const firstValidationFunction = async (text) => {
-    const externalData = await getExternalLeads();
+    const externalData = extdata;
     const internalData = crm_data.data;
     const partialResult = [];
     internalData.forEach((lead) => {
@@ -27,7 +34,7 @@ const Leads = () => {
     return partialResult;
   };
   const secondValidationFunction = async (text) => {
-    const externalData = await getExternalLeads();
+    const externalData = extdata;
     const resultado = externalData.filter((leadExt) => {
       return leadExt.judicial_records === false;
     });
@@ -67,14 +74,19 @@ const Leads = () => {
     return finalResult;
   };
 
-  // external data
-  const getExternalLeads = async () => {
-    const res = await fetch(
-      "http://68.183.97.181/checkproyects/items/crm_test"
-    );
-    const data = await res.json();
-    return data.data;
-  };
+  useEffect(() => {
+    axios
+      .get("http://68.183.97.181/checkproyects/items/crm_test")
+      .then(({ data }) => {
+        get_extdata({
+          extdata: data.data,
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  });
+
   return (
     <section className="leads">
       <header className="header header__subtitle">
@@ -104,4 +116,10 @@ const Leads = () => {
   );
 };
 
-export default Leads;
+const mapStateToProps = (state) => {
+  return {
+    extdata: state.extdataState.extdata,
+  };
+};
+
+export default connect(mapStateToProps, { get_extdata })(Leads);
