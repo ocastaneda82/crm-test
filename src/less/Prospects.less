@@ -1,7 +1,20 @@
 // main: ./App.less
 .prospects {
+  margin-top: 3em;
+  @media (min-width: 992px) {
+      margin-top: 0;
+    }
   [data-title="Score"] {
     &:before {
+      color: green;
+    }
+    @media (min-width: 992px) {
+      text-align: center;
+      color: green;
+    }
+  }
+  .score h5 {
+    @media (min-width: 992px) {
       color: green;
     }
   }

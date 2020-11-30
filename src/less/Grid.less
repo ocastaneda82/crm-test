@@ -8,6 +8,34 @@
 }
 .main {
   margin: 2em 0;
+  @media (min-width: 992px) {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .main th {
+    text-align: left;
+    @media (min-width: 992px) {
+      padding: 0.5em;
+      &:first-child {
+        padding-left: 0;
+      }
+      h5 {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+  .main td {
+    font-size: 0.9em;
+    white-space: nowrap;
+    padding: 0.5em;
+    &:first-child {
+      padding-left: 0;
+    }
+  }
 }
 @media only screen and (max-width: 800px) {
   /* Force table to not be like tables anymore */
@@ -18,6 +46,7 @@
   .main td,
   .main tr {
     display: block;
+    position: relative;
   }
 
   /* Hide table headers (but not display: none;, for accessibility) */
@@ -70,4 +99,11 @@
   .main td:before {
     content: attr(data-title);
   }
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
 }

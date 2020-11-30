@@ -83,8 +83,9 @@ const Leads = () => {
   };
   return (
     <section className="leads">
-      <header className="header">
+      <header className="header header__subtitle">
         <h2 className="header__title">Leads</h2>
+        <Button text="Check" thirdValidation={thirdValidationFunction} />
       </header>
       <div className="main">
         <table>
@@ -102,7 +103,9 @@ const Leads = () => {
           </tbody>
         </table>
       </div>
-      <Button text="Check" thirdValidation={thirdValidationFunction} />
+      <footer>
+        <Button text="Check" thirdValidation={thirdValidationFunction} />
+      </footer>
     </section>
   );
 };

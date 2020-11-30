@@ -1,1 +1,18 @@
 // main: ./App.less
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @media (min-width: 992px) {
+        justify-content: center;
+    }
+    &__subtitle {
+        justify-content: space-between;
+    }
+
+    h1 {
+        color: @color_azul--oscuro;
+    }
+}

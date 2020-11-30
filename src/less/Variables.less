@@ -6,8 +6,16 @@
 @font_text: "Mulish", sans-serif;
 
 @color_labels: #999;
+@color_azul--claro: #2c5364;
+@color_azul--oscuro: #0f2027;
+
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
+  color: @color_azul--oscuro;
   font-family: @font_text;
   background: #0f2027;
   /* fallback for old browsers */
@@ -22,5 +30,6 @@ h3,
 h4,
 h5,
 h6 {
+  color: @color_azul--claro;
   font-family: @font_titles;
 }

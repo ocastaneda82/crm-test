@@ -10,16 +10,25 @@ const Button = ({ text, thirdValidation, data, get_prospects }) => {
       data: data,
     });
   };
+
+  const goToElement = () =>{
+    const elem = document.getElementById("prospects");
+    console.log(elem);
+    const found = window.scrollY + elem.getBoundingClientRect().top;
+    window.scrollTo(0, found);
+  }
   return (
     <button
-      className="boton--check"
+      className="boton boton--check"
       onClick={() => {
         thirdValidation("Third one done!")
           .then((result) => {
             console.log(result);
             prospectsClick(result);
           })
-          .catch((err) => console.log(err));
+          .catch((err) => console.log(err))
+          .then(() => goToElement());
+        ;
       }}
     >
       <span>{text}</span>

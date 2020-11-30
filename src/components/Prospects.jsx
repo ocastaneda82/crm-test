@@ -6,8 +6,10 @@ import { connect } from "react-redux";
 
 const Prospects = ({ data }) => (
   <section className="prospects">
-    <header className="header">
-      <h2 className="header__title">Prospects</h2>
+    <header className="header header__subtitle">
+      <h2 id="prospects" className="header__title">
+        Prospects
+      </h2>
     </header>
     <div className="main">
       <table>
