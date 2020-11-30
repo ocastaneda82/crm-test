@@ -13,6 +13,24 @@ const extdataState = (state = initialState, action) => {
         extdata: action.payload.extdata,
       };
     }
+    case types.SENDING_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    case types.REQUEST_DATA: {
+      return {
+        ...state,
+        extdata: action.payload.extdata,
+      };
+    }
+    case types.REQUEST_ERROR: {
+      return {
+        ...state,
+        error: action.payload.error,
+      };
+    }
     default:
       return state;
   }

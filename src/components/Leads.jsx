@@ -4,14 +4,12 @@ import Lead from "./Lead";
 import Button from "./Button";
 import Headers from "./Headers";
 
-import axios from "axios";
-
 import { connect } from "react-redux";
 
-import { get_extdata } from "../redux/actions/extDataAction.js";
+import { fetchData, get_extdata } from "../redux/actions/extDataAction.js";
 import extdataState from "../redux/reducers/extDataReducer";
 
-const Leads = ({ extdata, get_extdata }) => {
+const Leads = ({ extdata, loading, get_extdata, fetchData }) => {
   const firstValidationFunction = async (text) => {
     const externalData = extdata;
     const internalData = crm_data.data;
@@ -75,16 +73,7 @@ const Leads = ({ extdata, get_extdata }) => {
   };
 
   useEffect(() => {
-    axios
-      .get("http://68.183.97.181/checkproyects/items/crm_test")
-      .then(({ data }) => {
-        get_extdata({
-          extdata: data.data,
-        });
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    fetchData();
   });
 
   return (
@@ -119,7 +108,8 @@ const Leads = ({ extdata, get_extdata }) => {
 const mapStateToProps = (state) => {
   return {
     extdata: state.extdataState.extdata,
+    loading: true,
   };
 };
 
-export default connect(mapStateToProps, { get_extdata })(Leads);
+export default connect(mapStateToProps, { get_extdata, fetchData })(Leads);
