@@ -4,6 +4,7 @@
   "description": "",
   "keywords": [],
   "main": "src/index.js",
+  "homepage": "https://ocastaneda82.github.io/crm-test",
   "dependencies": {
     "axios": "^0.21.0",
     "react": "17.0.0",
