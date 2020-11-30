@@ -11,3 +11,7 @@ I used React Thunk to manage the asynchronous requests
 I used Axios to make the Api request
 
 https://ocastaneda82.github.io/crm-test/
+
+https://codesandbox.io/s/crm-test-2vius
+
+https://2vius.csb.app/
