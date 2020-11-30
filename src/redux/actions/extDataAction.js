@@ -31,7 +31,7 @@ export const request_error = (error) => ({
 
 const getData = () => {
   return axios
-    .get("http://68.183.97.181/checkproyects/items/crm_test")
+    .get("https://my-json-server.typicode.com/ocastaneda82/external-data/db")
     .then((res) => res)
     .catch((error) => error);
 };
