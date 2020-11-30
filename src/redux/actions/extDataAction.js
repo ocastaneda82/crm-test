@@ -31,7 +31,7 @@ export const request_error = (error) => ({
 
 const getData = () => {
   return axios
-    .get("http://68.183.97.181/checkproyects/items/crm_test")
+    .get("https://directus.digitalactive.info/crm_test.json")
     .then((res) => res)
     .catch((error) => error);
 };
