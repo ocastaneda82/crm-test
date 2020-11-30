@@ -31,7 +31,7 @@ export const request_error = (error) => ({
 
 const getData = () => {
   return axios
-    .get("https://directus.digitalactive.info/crm_test.json")
+    .get("https://my-json-server.typicode.com/ocastaneda82/external-data/db")
     .then((res) => res)
     .catch((error) => error);
 };
